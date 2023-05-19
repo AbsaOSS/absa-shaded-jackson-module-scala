@@ -1,12 +1,5 @@
-import com.typesafe.sbt.osgi.OsgiKeys
 
-// OSGI bundles
-lazy val jacksonOsgiSettings = osgiSettings ++ Seq(
-  OsgiKeys.exportPackage := Seq("com.fasterxml.jackson.module.scala.*"),
-  OsgiKeys.privatePackage := Seq()
-)
-
-lazy val jacksonProject = project.in(file(".")).enablePlugins(SbtOsgi).settings(jacksonOsgiSettings:_*)
+lazy val jacksonProject = project.in(file("."))
 
 Test / publishArtifact := false
 
