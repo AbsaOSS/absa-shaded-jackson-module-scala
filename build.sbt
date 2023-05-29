@@ -1,17 +1,19 @@
 import org.typelevel.sbt.gha.JavaSpec.Distribution.Zulu
 
 // Basic facts
-name := "absa-jackson-module-scala"
+name := "absa-shaded-jackson-module-scala"
 
-organization := "za.co.absa.jackson.module"
+organization := "za.co.absa.shaded"
 
-ThisBuild / scalaVersion := "2.13.10"
+ThisBuild / scalaVersion := "2.12.17"
 
 ThisBuild / crossScalaVersions := Seq("2.11.12", "2.12.17", "2.13.10", "3.2.2")
 
 //resolvers ++= Resolver.sonatypeOssRepos("snapshots")
+resolvers += Resolver.mavenLocal // when using local maven repo
 
 val jacksonVersion = "2.15.1"
+val absaShadedJacksonVersion = "0.0.1"
 
 autoAPIMappings := true
 
@@ -26,8 +28,8 @@ apiMappings ++= {
 
   val mappings: Seq[(File, URL)] =
     mappingsFor("org.scala-lang", List("scala-library"), "https://scala-lang.org/api/%s/") ++
-      mappingsFor("com.fasterxml.jackson.core", List("jackson-core"), "https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-core/%s/") ++
-      mappingsFor("com.fasterxml.jackson.core", List("jackson-databind"), "https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/%s/")
+      mappingsFor("za.co.absa.shaded.jackson.core", List("jackson-core"), "https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-core/%s/") ++
+      mappingsFor("za.co.absa.shaded.jackson.core", List("jackson-databind"), "https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-databind/%s/")
 
   mappings.toMap
 }
@@ -90,10 +92,11 @@ Test / unmanagedSourceDirectories ++= {
 }
 
 libraryDependencies ++= Seq(
-  "com.fasterxml.jackson.core" % "jackson-core" % jacksonVersion,
-  "com.fasterxml.jackson.core" % "jackson-annotations" % jacksonVersion,
-  "com.fasterxml.jackson.core" % "jackson-databind" % jacksonVersion,
-  "com.thoughtworks.paranamer" % "paranamer" % "2.8",
+  "za.co.absa.shaded" % "absa-shaded-jackson" % absaShadedJacksonVersion,
+//  "com.fasterxml.jackson.core" % "jackson-core" % jacksonVersion,
+//  "com.fasterxml.jackson.core" % "jackson-annotations" % jacksonVersion,
+//  "com.fasterxml.jackson.core" % "jackson-databind" % jacksonVersion,
+//  "com.thoughtworks.paranamer" % "paranamer" % "2.8",
   // test dependencies
   "com.fasterxml.jackson.datatype" % "jackson-datatype-joda" % jacksonVersion % Test,
   "com.fasterxml.jackson.datatype" % "jackson-datatype-guava" % jacksonVersion % Test,
@@ -107,7 +110,7 @@ libraryDependencies ++= Seq(
 
 // build.properties
 Compile / resourceGenerators += Def.task {
-    val file = (Compile / resourceManaged).value / "com" / "fasterxml" / "jackson" / "module" / "scala" / "build.properties"
+    val file = (Compile / resourceManaged).value / "za" / "co" / "absa" / "shaded" / "jackson" / "module" / "scala" / "build.properties"
     val contents = "version=%s\ngroupId=%s\nartifactId=%s\n".format(version.value, organization.value, name.value)
     IO.write(file, contents)
     Seq(file)

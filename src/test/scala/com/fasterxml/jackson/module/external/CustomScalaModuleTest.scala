@@ -1,9 +1,9 @@
-package com.fasterxml.jackson.module.external
+package za.co.absa.shaded.jackson.module.external
 
-import com.fasterxml.jackson.databind.json.JsonMapper
-import com.fasterxml.jackson.module.scala._
-import com.fasterxml.jackson.module.scala.deser.{ScalaNumberDeserializersModule, UntypedObjectDeserializerModule}
-import com.fasterxml.jackson.module.scala.introspect.ScalaAnnotationIntrospectorModule
+import za.co.absa.shaded.jackson.databind.json.JsonMapper
+import za.co.absa.shaded.jackson.module.scala._
+import za.co.absa.shaded.jackson.module.scala.deser.{ScalaNumberDeserializersModule, UntypedObjectDeserializerModule}
+import za.co.absa.shaded.jackson.module.scala.introspect.ScalaAnnotationIntrospectorModule
 
 object CustomScalaModuleTest {
   case class TestClass(decimal: BigDecimal, map: Map[String, String])

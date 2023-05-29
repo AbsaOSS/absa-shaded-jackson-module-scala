@@ -1,7 +1,7 @@
-package com.fasterxml.jackson.module.scala.deser
+package za.co.absa.shaded.jackson.module.scala.deser
 
-import com.fasterxml.jackson.core.`type`.TypeReference
-import com.fasterxml.jackson.module.scala.{DefaultScalaModule, JacksonModule}
+import za.co.absa.shaded.jackson.core.`type`.TypeReference
+import za.co.absa.shaded.jackson.module.scala.{DefaultScalaModule, JacksonModule}
 
 class IArrayDeserializerTest extends DeserializerTest {
 

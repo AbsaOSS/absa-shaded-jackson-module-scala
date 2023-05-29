@@ -1,6 +1,6 @@
-package com.fasterxml.jackson.module.scala.ser
+package za.co.absa.shaded.jackson.module.scala.ser
 
-import com.fasterxml.jackson.module.scala.{DefaultScalaModule, JacksonModule}
+import za.co.absa.shaded.jackson.module.scala.{DefaultScalaModule, JacksonModule}
 
 class IArraySerializerTest extends SerializerTest {
 

@@ -1,6 +1,6 @@
-package com.fasterxml.jackson.module.scala.util
+package za.co.absa.shaded.jackson.module.scala.util
 
-import com.fasterxml.jackson.module.scala.{BaseSpec, Weekday}
+import za.co.absa.shaded.jackson.module.scala.{BaseSpec, Weekday}
 
 class TastyUtilTest extends BaseSpec {
 

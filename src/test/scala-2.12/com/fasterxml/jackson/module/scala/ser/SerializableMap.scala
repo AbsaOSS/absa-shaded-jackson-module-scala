@@ -1,8 +1,8 @@
-package com.fasterxml.jackson.module.scala.ser
+package za.co.absa.shaded.jackson.module.scala.ser
 
-import com.fasterxml.jackson.core.JsonGenerator
-import com.fasterxml.jackson.databind.{JsonSerializable, SerializerProvider}
-import com.fasterxml.jackson.databind.jsontype.TypeSerializer
+import za.co.absa.shaded.jackson.core.JsonGenerator
+import za.co.absa.shaded.jackson.databind.{JsonSerializable, SerializerProvider}
+import za.co.absa.shaded.jackson.databind.jsontype.TypeSerializer
 
 import scala.collection.immutable.AbstractMap
 

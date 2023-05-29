@@ -1,5 +1,5 @@
-import com.fasterxml.jackson.module.scala.DefaultScalaModule
-import com.fasterxml.jackson.module.scala.ser.SerializerTest
+import za.co.absa.shaded.jackson.module.scala.DefaultScalaModule
+import za.co.absa.shaded.jackson.module.scala.ser.SerializerTest
 
 case class UnpackagedCaseClass(intValue: Int, stringValue: String)
 
